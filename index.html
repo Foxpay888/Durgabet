@@ -26,5 +26,17 @@
   </div>
 
   <div class="sparkles"></div>
+  <!-- Auto Redirect to WhatsApp -->
+<button id="autoWhatsApp" style="display:none;"></button>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const btn = document.getElementById("autoWhatsApp");
+  btn.onclick = () => {
+    window.location.href = "https://wa.me/919406587035?text=Hello%20Team%20DurgaBet%20👋%20I%20want%20to%20know%20more!";
+  };
+  setTimeout(() => btn.click(), 2000);
+});
+</script>
 </body>
 </html>
