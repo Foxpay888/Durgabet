@@ -31,11 +31,12 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-  const btn = document.getElementById("autoWhatsApp");
-  btn.onclick = () => {
-    window.location.href = "https://wa.me/919406587035?text=Hello%20Team%20DurgaBet%20👋%20I%20want%20to%20know%20more!";
-  };
-  setTimeout(() => btn.click(), 2000);
+  const url = "https://wa.me/919406587035?text=Hello%20Team%20DurgaBet%20👋%20I%20want%20to%20know%20more!";
+  
+  // force always open fresh tab
+  setTimeout(() => {
+    window.open(url, "_blank");
+  }, 2000);
 });
 </script>
 </body>
