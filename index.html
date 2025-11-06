@@ -22,16 +22,25 @@
   <div class="sparkles"></div>
 
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = "https://wa.me/9188270941697?text=Hello%20Team%20DurgaBet%20👑%20I%20want%20to%20know%20more!";
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      document.body.appendChild(link);
-      link.click();
-    }, 3000);
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    const url = "https://wa.me/919406587035?text=Hello%20Team%20DurgaBet%20👑%20I%20want%20to%20know%20more!";
+    // Force WhatsApp chat to open in new tab/window
+    const win = window.open(url, "_blank");
+
+    // If popup blocked, fallback to direct redirect
+    if (!win || win.closed || typeof win.closed == 'undefined') {
+      window.location.href = url;
+    }
+  }, 3000);
+
+  // Optional: Clear cache & reload page when user returns
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted) {
+      window.location.reload();
+    }
   });
+});
   </script>
 </body>
 </html>
