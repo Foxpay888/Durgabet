@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DurgaBet | King of Online World</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Durga Online | King of Online World</title>
 
-  <!-- ✅ Meta Pixel Code (Add Here) -->
+  <!-- ✅ META PIXEL CODE -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,48 +15,157 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1127860609502467');
+    fbq('init', 'YOUR_PIXEL_ID_HERE');  // 👈 Replace with your Pixel ID
     fbq('track', 'PageView');
   </script>
   <noscript>
     <img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1127860609502467&ev=PageView&noscript=1"/>
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
   </noscript>
-  <!-- ✅ End Meta Pixel Code -->
+  <!-- ✅ END META PIXEL CODE -->
 
+  <style>
+    /* Base Styles */
+    body {
+      margin: 0;
+      padding: 0;
+      background: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      position: relative;
+      top: 100px;
+    }
+
+    .logo {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .tagline {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .bonus {
+      color: gold;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* Popup Styles */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      z-index: 9999;
+    }
+
+    .popup.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup-content {
+      background: linear-gradient(135deg, #ffcc00, #ff8800);
+      color: black;
+      padding: 25px 20px;
+      border-radius: 15px;
+      width: 85%;
+      max-width: 350px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);
+      text-align: center;
+      animation: popIn 0.5s ease;
+      position: relative;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .popup h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .popup p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    .claim-btn {
+      display: inline-block;
+      background: #25d366;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .claim-btn:hover {
+      transform: scale(1.08);
+      background: #20bd5a;
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
 </head>
 <body>
-  <div class="overlay"></div>
-
   <div class="container">
-    <img src="logo.png" alt="DurgaBet Logo" class="logo">
-
+    <img src="logo.png" alt="Durga Online Logo" class="logo" />
     <h1 class="tagline">King of Online World | 2000+ Games</h1>
-    <p class="offer">Trusted Since 2001</p>
-    <p class="bonus">🎁 20% Joining Bonus + 7% Every Deposit</p>
-
-    <p class="redirect-text">Redirecting you to WhatsApp…</p>
+    <p class="bonus">🎁 Trusted Since 2001</p>
   </div>
 
-  <div class="sparkles"></div>
+  <!-- Popup Offer -->
+  <div id="offerPopup" class="popup">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">×</button>
+      <h2>🎉 Special Offer!</h2>
+      <p>Deposit ₹200 and get <strong>₹100 Bonus</strong> instantly!</p>
+      <a href="https://wa.me/919406587035?text=Hello%20Team%20DurgaBet%20👑%20I%20want%20100offer" 
+         class="claim-btn">Claim Offer</a>
+    </div>
+  </div>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      // WhatsApp number and message text
-      const whatsappLink = "https://api.whatsapp.com/send?phone=919406587035&text=Hello%20Team%20DurgaBet%20👑%20I%20want%20to%20know%20more!";
-
-      // Delay 3 seconds then redirect
+    // Show popup after 2 seconds
+    window.addEventListener("load", function() {
       setTimeout(() => {
-        window.location.replace(whatsappLink);
-      }, 3000);
-
-      // When user returns, page reloads so redirect triggers again
-      window.addEventListener("pageshow", function (event) {
-        if (event.persisted) {
-          window.location.reload();
-        }
-      });
+        document.getElementById("offerPopup").classList.add("active");
+      }, 2000);
     });
+
+    // Close popup
+    function closePopup() {
+      document.getElementById("offerPopup").classList.remove("active");
+    }
   </script>
 </body>
 </html>
