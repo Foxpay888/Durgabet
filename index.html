@@ -1,112 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Durga Online | King of Online World</title>
-
-  <!-- ✅ NEW META PIXEL CODE -->
-  <script>
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '1185946696781787');
-  fbq('track', 'PageView');
-  </script>
-  <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://www.facebook.com/tr?id=1185946696781787&ev=PageView&noscript=1"/>
-  </noscript>
-  <!-- ✅ END META PIXEL CODE -->
-
-  <style>
-    /* Base Styles */
-    body {
-      margin: 0;
-      padding: 0;
-      background: black;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      overflow-x: hidden;
-    }
-
-    .container {
-      position: relative;
-      top: 100px;
-    }
-
-    .logo {
-      width: 150px;
-      margin-bottom: 20px;
-    }
-
-    .tagline {
-      font-size: 20px;
-      font-weight: bold;
-    }
-
-    .bonus {
-      color: gold;
-      font-size: 18px;
-      margin-top: 10px;
-    }
-
-    /* Popup Styles */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      visibility: hidden;
-      opacity: 0;
-      transition: opacity 0.4s ease, visibility 0.4s ease;
-      z-index: 9999;
-    }
-
-    .popup.active {
-      visibility: visible;
-      opacity: 1;
-    }
-
-    .popup-content {
-      background: linear-gradient(135deg, #ffcc00, #ff8800);
-      color: black;
-      padding: 25px 20px;
-      border-radius: 15px;
-      width: 85%;
-      max-width: 350px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3);
-      text-align: center;
-      animation: popIn 0.5s ease;
-      position: relative;
-    }
-
-    @keyframes popIn {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    .popup h2 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-
-    .popup p {
-      font-size: 16px;
-      margin-bottom: 20px;
-    }
-
-    .claim-btn {
-      display: inline-block;
-      background: #25d366;
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Durga Online | King of Online World</title>    <!-- ✅ META PIXEL CODE -->    <script>  
+    !function(f,b,e,v,n,t,s)  
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?  
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};  
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';  
+    n.queue=[];t=b.createElement(e);t.async=!0;  
+    t.src=v;s=b.getElementsByTagName(e)[0];  
+    s.parentNode.insertBefore(t,s)}(window, document,'script',  
+    'https://connect.facebook.net/en_US/fbevents.js');  
+    fbq('init', '1185946696781787');  // 👈 Replace with your Pixel ID  
+    fbq('track', 'PageView');  
+  </script>    <noscript>  
+    <img height="1" width="1" style="display:none"  
+         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>  
+  </noscript>  
+  <!-- ✅ END META PIXEL CODE -->    <style>  
+    /* Base Styles */  
+    body {  
+      margin: 0;  
+      padding: 0;  
+      background: black;  
+      color: white;  
+      font-family: Arial, sans-serif;  
+      text-align: center;  
+      overflow-x: hidden;  
+    }  
+  
+    .container {  
+      position: relative;  
+      top: 100px;  
+    }  
+  
+    .logo {  
+      width: 150px;  
+      margin-bottom: 20px;  
+    }  
+  
+    .tagline {  
+      font-size: 20px;  
+      font-weight: bold;  
+    }  
+  
+    .bonus {  
+      color: gold;  
+      font-size: 18px;  
+      margin-top: 10px;  
+    }  
+  
+    /* Popup Styles */  
+    .popup {  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background: rgba(0,0,0,0.85);  
+      display: flex;  
+      align-items: center;  
+      justify-content: center;  
+      visibility: hidden;  
+      opacity: 0;  
+      transition: opacity 0.4s ease, visibility 0.4s ease;  
+      z-index: 9999;  
+    }  
+  
+    .popup.active {  
+      visibility: visible;  
+      opacity: 1;  
+    }  
+  
+    .popup-content {  
+      background: linear-gradient(135deg, #ffcc00, #ff8800);  
+      color: black;  
+      padding: 25px 20px;  
+      border-radius: 15px;  
+      width: 85%;  
+      max-width: 350px;  
+      box-shadow: 0 0 15px rgba(255,255,255,0.3);  
+      text-align: center;  
+      animation: popIn 0.5s ease;  
+      position: relative;  
+    }  
+  
+    @keyframes popIn {  
+      0% { transform: scale(0.8); opacity: 0; }  
+      100% { transform: scale(1); opacity: 1; }  
+    }  
+  
+    .popup h2 {  
+      font-size: 22px;  
+      margin-bottom: 10px;  
+    }  
+  
+    .popup p {  
+      font-size: 16px;  
+      margin-bottom: 20px;  
+    }  
+  
+    .claim-btn {  
+      display: inline-block;  
+      background: #25d366;  
+  
+  
+  
+  
+  
