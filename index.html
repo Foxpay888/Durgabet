@@ -5,46 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ᴅᴜʀɢᴀ ᴏɴʟɪɴᴇ | ɪɴᴅɪᴀ’ꜱ 1ꜱᴛ ʟᴇɢᴀʟ ᴘʟᴀᴛꜰᴏʀᴍ</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: "Poppins", sans-serif;
-      background: #0e0e0e url('https://i.ibb.co/zZ6SkJb/bg-dark.jpg') no-repeat center/cover;
+      background: #000;
       color: white;
       text-align: center;
-      overflow-x: hidden;
+      overflow: hidden;
+      height: 100vh;
+      position: relative;
     }
+
+    canvas#sparkles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      background: radial-gradient(circle at center, #111 0%, #000 100%);
+    }
+
     .container {
+      position: relative;
+      z-index: 2;
       max-width: 600px;
       margin: 60px auto;
       background: rgba(0, 0, 0, 0.75);
       border: 1px solid #c9a24a;
       border-radius: 16px;
       padding: 25px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
     }
+
     h1 {
       font-size: 1.8rem;
       color: #d4af37;
       margin-bottom: 10px;
     }
+
     .subtitle {
       color: #fff;
       font-size: 1.1rem;
       margin-bottom: 25px;
     }
+
     .highlight {
       color: #ffc107;
       font-weight: 600;
     }
+
     img.phone {
       width: 80%;
       border-radius: 12px;
       margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
     }
+
     .offer {
       font-size: 1.1rem;
       margin-bottom: 20px;
     }
+
     .btn {
       background: #25d366;
       color: white;
@@ -55,38 +77,30 @@
       cursor: pointer;
       text-decoration: none;
       transition: 0.3s;
+      box-shadow: 0 0 15px rgba(37, 211, 102, 0.4);
     }
+
     .btn:hover {
       background: #1eb75e;
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.6);
     }
+
     .footer {
       margin-top: 25px;
       font-size: 0.9rem;
       color: #ccc;
     }
+
     .countdown {
       font-size: 0.9rem;
       margin-top: 10px;
       color: #aaa;
     }
   </style>
-  <script>
-    let seconds = 4;
-    function countdown() {
-      const el = document.getElementById("timer");
-      if (seconds > 0) {
-        el.innerText = seconds;
-        seconds--;
-        setTimeout(countdown, 1000);
-      } else {
-        // ✅ Redirect to your WhatsApp number
-        window.location.href = "https://wa.me/919406587035?text=ʜᴇʟʟᴏ%20ᴛᴇᴀᴍ%20ᴅᴜʀɢᴀ%20ᴏɴʟɪɴᴇ!";
-      }
-    }
-    window.onload = countdown;
-  </script>
 </head>
 <body>
+  <canvas id="sparkles"></canvas>
+
   <div class="container">
     <img src="https://i.ibb.co/0fZgkgh/durga-poster.jpg" alt="Durga Online Poster" class="phone">
     <h1>ɪɴᴅɪᴀ’ꜱ 1ꜱᴛ <span class="highlight">ʟᴇɢᴀʟ ᴘʟᴀᴛꜰᴏʀᴍ</span></h1>
@@ -104,5 +118,70 @@
       © 2025 ᴅᴜʀɢᴀ ᴏɴʟɪɴᴇ | ꜱᴀꜰᴇ • ʟᴇɢᴀʟ • ᴛʀᴜꜱᴛᴇᴅ
     </div>
   </div>
+
+  <script>
+    // Countdown redirect
+    let seconds = 4;
+    function countdown() {
+      const el = document.getElementById("timer");
+      if (seconds > 0) {
+        el.innerText = seconds;
+        seconds--;
+        setTimeout(countdown, 1000);
+      } else {
+        window.location.href = "https://wa.me/919406587035?text=ʜᴇʟʟᴏ%20ᴛᴇᴀᴍ%20ᴅᴜʀɢᴀ%20ᴏɴʟɪɴᴇ!";
+      }
+    }
+    window.onload = countdown;
+
+    // Sparkle animation
+    const canvas = document.getElementById('sparkles');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2;
+        this.speedY = 0.2 + Math.random() * 0.5;
+        this.alpha = 0.2 + Math.random() * 0.8;
+      }
+      update() {
+        this.y += this.speedY;
+        if (this.y > canvas.height) this.reset();
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 215, 0, ${this.alpha})`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < 100; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let p of particles) {
+        p.update();
+        p.draw();
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
+  </script>
 </body>
 </html>
