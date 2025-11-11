@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>𝐃𝐮𝐫𝐠𝐚 𝐎𝐧𝐥𝐢𝐧𝐞 | 1st 𝐋𝐞𝐠𝐚𝐥 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦</title>
+  <title>𝐃𝐮𝐫𝐠𝐚 𝐎𝐧𝐥𝐢𝐧𝐞 |1st 𝐋𝐞𝐠𝐚𝐥 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -59,7 +59,7 @@
       animation: glowZoom 3s ease-in-out infinite;
     }
 
-    /* 💫 Text Animations */
+    /* 💫 Glow + Zoom animation */
     @keyframes glowZoom {
       0%, 100% {
         transform: translateY(-50%) scale(1);
@@ -71,17 +71,17 @@
       }
     }
 
-    h1 {
-      font-size: 1.8rem;
-      color: #ffd700;
+    /* 🪩 Logo */
+    .logo {
+      width: 180px;
       margin-bottom: 10px;
-      text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
       animation: textGlow 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
     }
 
     @keyframes textGlow {
-      0%, 100% { text-shadow: 0 0 15px rgba(255, 215, 0, 0.3); transform: scale(1); }
-      50% { text-shadow: 0 0 35px rgba(255, 215, 0, 0.9); transform: scale(1.05); }
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.4)); }
+      50% { transform: scale(1.05); filter: drop-shadow(0 0 25px rgba(255, 215, 0, 1)); }
     }
 
     .subtitle {
@@ -169,9 +169,11 @@
   <div class="sparkles"></div>
 
   <div class="container">
-    <img src="https://i.ibb.co/0fZgkgh/durga-poster.jpg" alt="Durga Poster" class="phone">
+    <img src="https://i.ibb.co/0fZgkgh/durga-poster.jpg" alt="Poster" class="phone">
 
-    <h1>🟡 𝐃𝐮𝐫𝐠𝐚 𝐎𝐧𝐥𝐢𝐧𝐞 🟡</h1>
+    <!-- ✅ Use logo.png from same folder -->
+    <img src="logo.png" alt="Durga Logo" class="logo">
+
     <div class="subtitle">𝐈𝐧𝐝𝐢𝐚’𝐬 𝟏𝐬𝐭 𝐋𝐞𝐠𝐚𝐥 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦 | 𝟐𝟒𝐱𝟕 𝐒𝐮𝐩𝐩𝐨𝐫𝐭</div>
 
     <div class="offer">
