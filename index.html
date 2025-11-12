@@ -3,68 +3,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Durga Online | Connecting...</title>
+  <title>Durga Online | Premium Gaming Experience</title>
+
   <style>
-    body {
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #0a0a0a, #000);
+      color: #fff;
       height: 100vh;
-      background: radial-gradient(circle at center, #000, #111);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      color: white;
-      font-family: "Poppins", sans-serif;
       overflow: hidden;
-    }
-
-    .popup {
-      background: rgba(0, 0, 0, 0.85);
-      border: 1px solid gold;
-      border-radius: 20px;
-      padding: 30px 40px;
       text-align: center;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-      animation: popupZoom 1s ease-in-out;
     }
 
-    @keyframes popupZoom {
-      0% { transform: scale(0.8); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
+    .glow {
+      font-size: 60px;
+      background: linear-gradient(90deg, #ffd700, #d4af37, #ffd700);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowMove 3s infinite linear;
+      letter-spacing: 2px;
+      font-weight: 700;
+      text-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
     }
 
-    .popup img {
-      width: 120px;
-      height: auto;
-      margin-bottom: 15px;
+    @keyframes glowMove {
+      0% { background-position: 0%; }
+      100% { background-position: 200%; }
     }
 
-    .popup h2 {
-      font-size: 1.5rem;
-      color: gold;
-      margin-bottom: 10px;
+    .subtitle {
+      font-size: 22px;
+      color: #80ffcc;
+      margin-top: 10px;
+      opacity: 0;
+      animation: fadeIn 2s ease-in-out forwards 0.8s;
     }
 
-    .popup p {
-      font-size: 1rem;
-      color: #ddd;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .btn {
+      margin-top: 40px;
+      background: linear-gradient(90deg, #25d366, #128C7E);
+      color: #fff;
+      padding: 15px 40px;
+      border-radius: 50px;
+      font-size: 20px;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(37, 211, 102, 0.5);
+      transition: all 0.3s ease;
+      animation: fadeIn 2s ease-in-out forwards 1.5s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 40px rgba(37, 211, 102, 0.7);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 14px;
+      color: #888;
+      letter-spacing: 1px;
+    }
+
+    .logo {
+      width: 300px;
+      animation: fadeIn 2s ease-in-out forwards;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      animation: float 10s linear infinite;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh) scale(0); }
+      to { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
   </style>
+</head>
+<body>
+  <div class="particles"></div>
+
+  <img src="durga-online-logo.png" alt="Durga Online" class="logo" />
+
+  <h1 class="glow">Durga Online</h1>
+  <div class="subtitle">Discover Premium Online Entertainment</div>
+
+  <a href="https://wa.me/919406587035?text=Hello%20Durga%20Online!%20I%20want%20to%20know%20more." target="_blank" class="btn">
+    💬 Connect on WhatsApp
+  </a>
+
+  <footer>© 2025 Durga Online. All rights reserved.</footer>
 
   <script>
-    // ⏳ Redirect to second page (redirect.html)
-    window.onload = function() {
-      setTimeout(function() {
-        window.location.href = "redirect.html";
-      }, 1500);
-    };
+    // Generate floating light particles
+    const particlesContainer = document.querySelector('.particles');
+    for (let i = 0; i < 25; i++) {
+      const p = document.createElement('span');
+      p.classList.add('particle');
+      const size = Math.random() * 5 + 2;
+      p.style.width = size + 'px';
+      p.style.height = size + 'px';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (Math.random() * 10 + 5) + 's';
+      p.style.animationDelay = Math.random() * 10 + 's';
+      particlesContainer.appendChild(p);
+    }
   </script>
-</head>
-
-<body>
-  <div class="popup">
-    <img src="logo.png" alt="Durga Logo">
-    <h2>Connecting to WhatsApp...</h2>
-    <p>Please wait a moment</p>
-  </div>
 </body>
 </html>
